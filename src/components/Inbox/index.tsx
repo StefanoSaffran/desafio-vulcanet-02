@@ -41,7 +41,7 @@ const Inbox: FC<IProps> = ({ handleOpenEmail, chats }) => {
             return hasNew ? sum + 1 : sum;
           }, 0);
           return (
-            <li>
+            <li key={chat.id}>
               <Email
                 type="button"
                 notifications={notifications}

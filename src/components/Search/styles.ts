@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { IProps } from '.';
 
 export const Container = styled.div<IProps>`
-  width: max(120px, min(280px, 20vw));
+  width: ${props =>
+    props.has_background ? '100%' : 'max(120px, min(280px, 20vw))'};
   position: relative;
 
   border-radius: 4px;
@@ -27,11 +28,14 @@ export const Container = styled.div<IProps>`
     top: 10px;
     right: 10px;
 
-    color: ${props => (props.has_background ? 'var(--white)' : 'var(--gray)')};
-
     width: 18px;
     height: 18px;
 
     transition: 280ms ease-in-out;
+
+    path {
+      color: ${props =>
+        props.has_background ? 'var(--white)' : 'var(--gray)'};
+    }
   }
 `;

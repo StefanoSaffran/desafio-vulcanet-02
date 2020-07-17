@@ -214,6 +214,7 @@ export const TextArea = styled.textarea`
   color: var(--gray);
   font-size: 15px;
   line-height: 16px;
+  resize: none;
 `;
 
 export const IconsWrapper = styled.div`

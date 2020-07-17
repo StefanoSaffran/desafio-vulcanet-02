@@ -58,6 +58,7 @@ const MessageRow: FC<IMessageProps> = ({
 };
 
 const Chat: FC<IProps> = ({ customer, user, chats }) => {
+  console.log(chats);
   return (
     <Container>
       <Header>
@@ -67,11 +68,14 @@ const Chat: FC<IProps> = ({ customer, user, chats }) => {
       </Header>
 
       <ChatBody>
-        <InfoMessage>
-          <span>
-            Atendimento iniciado em <strong>{chats[0]?.formattedStart}</strong>
-          </span>
-        </InfoMessage>
+        {chats[0] && (
+          <InfoMessage>
+            <span>
+              Atendimento iniciado em{' '}
+              <strong>{chats[0]?.formattedStart}</strong>
+            </span>
+          </InfoMessage>
+        )}
 
         <Messages>
           {chats[0]?.messages.map(message => (
