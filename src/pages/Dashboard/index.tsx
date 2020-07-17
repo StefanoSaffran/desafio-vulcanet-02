@@ -121,10 +121,19 @@ const Dashboard: React.FC = () => {
         (channel.type !== 'whatsapp' && channel.type !== 'email')
       )
         return;
-
+      setIsEmailOpened(false);
       setSelectedChannel(channel);
     },
     [selectedChannel],
+  );
+
+  const handleChangeCustomer = useCallback(
+    customerId => {
+      setSelectedCustomer(
+        customers.find(customer => customer.id === customerId) || customers[0],
+      );
+    },
+    [customers],
   );
 
   const userChannelChats = useMemo(
@@ -153,6 +162,7 @@ const Dashboard: React.FC = () => {
   return selectedCustomer?.name ? (
     <Container>
       <ChatListMenu
+        handleChangeCustomer={handleChangeCustomer}
         selectedCustomer={selectedCustomer}
         customers={customers}
         user={user}
