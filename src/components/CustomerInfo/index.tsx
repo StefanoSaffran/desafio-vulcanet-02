@@ -89,7 +89,7 @@ const CustomerInfo: FC<IProps> = ({ customer, contactTypeList }) => {
   return (
     <Container>
       <Customer>
-        <Avatar />
+        <Avatar src={customer.photo} alt={customer.name} />
         <CustomerData>
           <strong>{customer.name}</strong>
           <span>{customer.company}</span>

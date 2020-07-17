@@ -14,7 +14,7 @@ export const Customer = styled.div`
   align-items: center;
 `;
 
-export const Avatar = styled.div`
+export const Avatar = styled.img`
   width: 64px;
   height: 64px;
   border-radius: 50%;
