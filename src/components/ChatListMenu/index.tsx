@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
-import { MdExpandMore } from 'react-icons/md';
-import { FaSearch } from 'react-icons/fa';
+import { FaCaretDown } from 'react-icons/fa';
+
 import ChatList from './ChatList';
+import Search from '../Search';
 import { ICustomer, IUser, IChat } from '../../pages/Dashboard';
 
 import {
@@ -18,6 +19,7 @@ interface IProps {
   selectedCustomer: ICustomer;
   user: IUser;
   chats: IChat[];
+  handleChangeCustomer(customerId: number): void;
 }
 
 const ChatListMenu: FC<IProps> = ({
@@ -25,10 +27,11 @@ const ChatListMenu: FC<IProps> = ({
   selectedCustomer,
   user,
   chats,
+  handleChangeCustomer,
 }) => {
   return (
     <Container>
-      <Header>
+      <Header to="/">
         <Profile>
           <Avatar src={user.photo} alt={user.name} />
           <UserData>
@@ -37,15 +40,15 @@ const ChatListMenu: FC<IProps> = ({
           </UserData>
         </Profile>
 
-        <MdExpandMore size={12} />
+        <FaCaretDown size={12} />
       </Header>
 
       <InputWrapper>
-        <input type="text" />
-        <FaSearch />
+        <Search has_background />
       </InputWrapper>
 
       <ChatList
+        handleChangeCustomer={handleChangeCustomer}
         selectedCustomer={selectedCustomer}
         customers={customers}
         chats={chats}

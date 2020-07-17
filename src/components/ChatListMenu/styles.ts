@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { shade } from 'polished';
 
 export const Container = styled.div`
   width: 280px;
@@ -7,18 +9,18 @@ export const Container = styled.div`
   padding: 12px 0;
 `;
 
-export const Header = styled.div`
+export const Header = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 12px;
+  cursor: pointer;
 
   svg {
     width: 16px;
     height: 16px;
 
     color: var(--darkGray);
-    cursor: pointer;
   }
 `;
 
@@ -42,13 +44,23 @@ export const UserData = styled.div`
     font-size: 13px;
     display: block;
     color: var(--white);
+
+    &:hover,
+    &.active {
+      color: ${shade(0.08, '#fff')};
+    }
   }
 
   > span {
     font-size: 13px;
-    color: var(--secondary);
+    color: #7ed5e9;
     text-transform: uppercase;
     font-weight: 500;
+
+    &:hover,
+    &.active {
+      color: ${shade(0.08, '#7ed5e9')};
+    }
   }
 `;
 
@@ -57,29 +69,4 @@ export const InputWrapper = styled.div`
   position: relative;
   margin-top: 12px;
   padding: 0 12px;
-
-  > input {
-    width: 100%;
-    height: 38px;
-
-    padding: 0 30px 0 10px;
-    border-radius: 7px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-
-    color: var(--white);
-    background: rgba(255, 255, 255, 0.15);
-    font-size: 16px;
-  }
-
-  > svg {
-    width: 20px;
-    height: 20px;
-    color: var(--white);
-
-    position: absolute;
-    top: 9px;
-    right: 22px;
-
-    transition: 280ms ease-in-out;
-  }
 `;

@@ -5,12 +5,14 @@ import { ICustomer, IChat } from '../../../pages/Dashboard';
 import { Container, Header, Customer, Avatar, CustomerData } from './styles';
 
 interface IProps {
+  handleChangeCustomer(customerId: number): void;
   customers: ICustomer[];
   selectedCustomer: ICustomer;
   chats: IChat[];
 }
 
 interface ICustomerProps {
+  handleChangeCustomer(customerId: number): void;
   id: number;
   name: string;
   company: string;
@@ -26,6 +28,7 @@ const CustomerRow: FC<ICustomerProps> = ({
   photo,
   active,
   chats,
+  handleChangeCustomer,
 }) => {
   const notifications = useMemo(() => {
     const customerChats = chats.filter(chat => chat.customer === id);
@@ -38,7 +41,11 @@ const CustomerRow: FC<ICustomerProps> = ({
   }, [chats, id]);
 
   return (
-    <Customer notifications={notifications} className={active ? 'active' : ''}>
+    <Customer
+      onClick={() => handleChangeCustomer(id)}
+      notifications={notifications}
+      className={active ? 'active' : ''}
+    >
       <Avatar src={photo} alt={name} />
       <CustomerData>
         <strong>{name}</strong>
@@ -48,7 +55,12 @@ const CustomerRow: FC<ICustomerProps> = ({
   );
 };
 
-const ChatList: FC<IProps> = ({ customers, selectedCustomer, chats }) => {
+const ChatList: FC<IProps> = ({
+  customers,
+  selectedCustomer,
+  chats,
+  handleChangeCustomer,
+}) => {
   return (
     <Container>
       <Header>
@@ -56,10 +68,11 @@ const ChatList: FC<IProps> = ({ customers, selectedCustomer, chats }) => {
         <MdAdd size={18} />
       </Header>
 
-      {customers?.map(({ id, name, company, contacts, photo }) => (
+      {customers?.map(({ id, name, company, photo }) => (
         <CustomerRow
           key={id}
           active={selectedCustomer.name === name}
+          handleChangeCustomer={handleChangeCustomer}
           id={id}
           name={name}
           photo={photo}

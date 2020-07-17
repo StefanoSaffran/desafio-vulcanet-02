@@ -25,13 +25,14 @@ export const Header = styled.div`
   }
 `;
 
-export const Customer = styled.div<ICustomerProps>`
+export const Customer = styled.button<ICustomerProps>`
   display: flex;
   align-items: center;
-
+  width: 100%;
   padding: 8px 12px;
 
   position: relative;
+  background: none;
 
   &:hover,
   &.active {
