@@ -8,6 +8,7 @@ import Chat from '../../components/Chat';
 import Inbox from '../../components/Inbox';
 import EmailChat from '../../components/EmailChat';
 import CustomerInfo from '../../components/CustomerInfo';
+import Loading from '../../components/Loading';
 import api from '../../services/api';
 
 import { Container, Content } from './styles';
@@ -204,7 +205,11 @@ const Dashboard: React.FC = () => {
       </Content>
     </Container>
   ) : (
-    <Container>Carregando...</Container>
+    <Container>
+      <Content>
+        <Loading />
+      </Content>
+    </Container>
   );
 };
 
