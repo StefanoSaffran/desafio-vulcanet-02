@@ -34,6 +34,12 @@ export const IconWrapper = styled.button<IIconWrapperProps>`
       svg path {
         color: #fff;
       }
+
+      ::after {
+        background-color: ${props =>
+          props.selectedChannel.type === 'email' && '#fff'};
+        color: ${props => props.selectedChannel.type === 'email' && '#E33E1A'};
+      }
   }
 
   &::after {
@@ -50,8 +56,8 @@ export const IconWrapper = styled.button<IIconWrapperProps>`
 
   width: auto;
   height: 15px;
-  min-width: 8px;
-  padding: 1px 4px;
+  min-width: 10px;
+  padding: 0 2px;
 
   position: absolute;
   bottom: 5px;
@@ -60,6 +66,10 @@ export const IconWrapper = styled.button<IIconWrapperProps>`
   text-align: center;
   font-size: 10px;
   font-weight: bold;
+    .active {
+      background-color: ${props =>
+        props.selectedChannel.type === 'email' && '#fff'};
+    }
   }
 `;
 
