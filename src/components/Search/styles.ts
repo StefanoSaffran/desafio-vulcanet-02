@@ -19,7 +19,7 @@ export const Container = styled.div<IProps>`
     color: ${props =>
       props.has_background ? 'var(--white)' : 'var(--darkGray)'};
     background-color: ${props =>
-      props.has_background ? 'var(--secondary)' : 'transparent'};
+      props.has_background ? 'var(--tertiary)' : 'transparent'};
     font-size: 16px;
   }
 
@@ -35,7 +35,7 @@ export const Container = styled.div<IProps>`
 
     path {
       color: ${props =>
-        props.has_background ? 'var(--white)' : 'var(--gray)'};
+        props.has_background ? 'var(--white)' : 'var(--icons-alt)'};
     }
   }
 `;

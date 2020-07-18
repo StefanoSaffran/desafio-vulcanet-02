@@ -58,7 +58,6 @@ const MessageRow: FC<IMessageProps> = ({
 };
 
 const Chat: FC<IProps> = ({ customer, user, chats }) => {
-  console.log(chats);
   return (
     <Container>
       <Header>

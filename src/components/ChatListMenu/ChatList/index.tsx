@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react';
-import { MdAdd } from 'react-icons/md';
+import { FaPlus } from 'react-icons/fa';
 import { ICustomer, IChat } from '../../../pages/Dashboard';
 
 import { Container, Header, Customer, Avatar, CustomerData } from './styles';
@@ -65,7 +65,7 @@ const ChatList: FC<IProps> = ({
     <Container>
       <Header>
         <span>Clientes</span>
-        <MdAdd size={18} />
+        <FaPlus size={16} />
       </Header>
 
       {customers?.map(({ id, name, company, photo }) => (

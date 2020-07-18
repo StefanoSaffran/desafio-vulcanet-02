@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 interface ICustomerProps {
   notifications: number;
@@ -22,6 +23,11 @@ export const Header = styled.div`
   > svg {
     margin-right: 8px;
     cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: ${shade(0.15, '#fff')};
+    }
   }
 `;
 
@@ -33,6 +39,7 @@ export const Customer = styled.button<ICustomerProps>`
 
   position: relative;
   background: none;
+  transition: background-color ease-in-out 0.2s;
 
   &:hover,
   &.active {
@@ -72,7 +79,7 @@ export const Avatar = styled.img`
   height: 40px;
   border-radius: 50%;
 
-  background-color: var(--quinary);
+  background-color: var(--tertiary);
 `;
 
 export const CustomerData = styled.div`
@@ -88,7 +95,7 @@ export const CustomerData = styled.div`
 
   > span {
     font-size: 13px;
-    color: #7ed5e9;
+    color: var(--secondary);
     text-transform: uppercase;
     font-weight: 500;
   }

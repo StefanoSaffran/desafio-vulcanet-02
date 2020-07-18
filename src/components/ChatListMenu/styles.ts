@@ -20,7 +20,7 @@ export const Header = styled(Link)`
     width: 16px;
     height: 16px;
 
-    color: var(--darkGray);
+    color: #126f64;
   }
 `;
 
@@ -53,7 +53,7 @@ export const UserData = styled.div`
 
   > span {
     font-size: 13px;
-    color: #7ed5e9;
+    color: var(--secondary);
     text-transform: uppercase;
     font-weight: 500;
 

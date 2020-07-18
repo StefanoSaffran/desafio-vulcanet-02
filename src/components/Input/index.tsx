@@ -15,12 +15,7 @@ const Input: FC<IInputProps> = ({
   ...rest
 }) => {
   return (
-    <Container
-      style={containerStyle}
-      isErrored={false}
-      isFocused={false}
-      isFilled={false}
-    >
+    <Container style={containerStyle}>
       {Icon && <Icon size={15} />}
       <input {...rest} />
     </Container>

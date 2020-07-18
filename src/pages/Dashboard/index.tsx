@@ -122,6 +122,7 @@ const Dashboard: React.FC = () => {
         (channel.type !== 'whatsapp' && channel.type !== 'email')
       )
         return;
+
       setIsEmailOpened(false);
       setSelectedChannel(channel);
     },

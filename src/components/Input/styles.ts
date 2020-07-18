@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 
-interface IContainerProps {
-  isFocused: boolean;
-  isFilled: boolean;
-  isErrored: boolean;
-}
-
-export const Container = styled.div<IContainerProps>`
+export const Container = styled.div`
   background: var(--white);
   color: #666;
-  border: 1px solid #e0e7ed;
+  border: 1px solid #e0e7ef;
   border-radius: 4px;
   padding: 0 16px;
   height: 38px;
@@ -30,6 +24,6 @@ export const Container = styled.div<IContainerProps>`
 
   svg {
     margin-right: 16px;
-    color: #c7d7e2;
+    color: var(--placeholder);
   }
 `;
