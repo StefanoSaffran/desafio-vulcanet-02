@@ -1,13 +1,9 @@
 import React, { useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
-import { FiUser, FiLock, FiPhoneCall } from 'react-icons/fi';
+import { useHistory, Link } from 'react-router-dom';
+import { FiPhoneCall } from 'react-icons/fi';
 import { GoMail } from 'react-icons/go';
-import { FaArrowRight } from 'react-icons/fa';
-import {
-  AiOutlineSkype,
-  AiOutlineWhatsApp,
-  AiOutlineMessage,
-} from 'react-icons/ai';
+import { FaArrowRight, FaWhatsapp, FaUserAlt, FaLock } from 'react-icons/fa';
+import { AiOutlineSkype, AiOutlineMessage } from 'react-icons/ai';
 
 import logo from '../../assets/logo.svg';
 import Input from '../../components/Input';
@@ -39,16 +35,16 @@ const SignIn: React.FC = () => {
 
           <form>
             <Icons>
-              <AiOutlineWhatsApp size={32} />
+              <FaWhatsapp size={32} />
               <AiOutlineSkype size={32} />
               <GoMail size={32} />
               <FiPhoneCall size={32} />
               <AiOutlineMessage size={32} />
             </Icons>
-            <Input name="email" icon={FiUser} placeholder="E-mail" />
+            <Input name="user" icon={FaUserAlt} placeholder="Usuário" />
             <Input
               name="password"
-              icon={FiLock}
+              icon={FaLock}
               type="password"
               placeholder="Senha"
             />
@@ -57,6 +53,7 @@ const SignIn: React.FC = () => {
               Entrar
               <FaArrowRight size={15} />
             </button>
+            <Link to="/">Esqueceu a senha?</Link>
           </form>
         </AnimationContainer>
       </Content>

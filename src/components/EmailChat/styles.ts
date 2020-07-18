@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { shade } from 'polished';
 
 interface IAuthorProps {
   from_guest: boolean;
@@ -31,13 +32,23 @@ export const Header = styled.header`
     > button {
       margin-right: 12px;
       background: none;
-      > svg path {
-        color: #a7b6c2;
+      > svg {
+        path {
+          color: var(--icons-alt);
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          path {
+            color: ${shade(0.3, '#A7B6C2')};
+          }
+        }
       }
     }
 
     > h3 {
-      color: #222;
+      color: var(--text);
       text-transform: uppercase;
       font-size: 16px;
       line-height: 18px;
@@ -56,7 +67,7 @@ export const Header = styled.header`
     text-align: center;
 
     color: var(--white);
-    background: #00a7cf;
+    background: var(--primary);
     box-shadow: 0px 1px 0px #0794b6;
   }
 `;
@@ -92,16 +103,16 @@ export const Author = styled.div<IAuthorProps>`
   font-size: 15px;
 
   > p {
-    color: #636466;
+    color: var(--gray);
     margin: 0 10px;
 
     > strong {
-      color: #636466;
+      color: var(--gray);
     }
   }
 
   svg {
-    color: ${({ seen }) => (seen ? '#4fc3f7' : '#A7B6C2')};
+    color: ${({ seen }) => (seen ? '#4fc3f7' : 'var(--icons-alt)')};
   }
 
   ${props =>
@@ -131,7 +142,7 @@ export const Message = styled.div<IMessageProps>`
   margin-bottom: 30px;
   padding: 20px;
 
-  color: #333;
+  color: var(--darGray);
   font-size: 15px;
   line-height: 24px;
 
@@ -148,7 +159,7 @@ export const Message = styled.div<IMessageProps>`
         `}
 
   background-color: ${props =>
-    props.from_guest ? 'var(--white)' : 'var(--quaternary)'};
+    props.from_guest ? 'var(--white)' : 'var(--messagesBackground)'};
 
   &::before {
     content: '';
@@ -171,7 +182,7 @@ export const Message = styled.div<IMessageProps>`
           `
         : css`
             right: 0;
-            border-right: 15px solid var(--quaternary);
+            border-right: 15px solid var(--messagesBackground);
           `}
   }
 `;
@@ -189,7 +200,7 @@ export const TextAreaWrapper = styled.div`
     display: flex;
     align-items: center;
 
-    button {
+    > button {
       height: 38px;
       border-radius: 4px;
       padding: 0 25px;
@@ -201,23 +212,52 @@ export const TextAreaWrapper = styled.div`
       text-align: center;
 
       color: var(--white);
-      background: #00a7cf;
+      background: var(--primary);
       box-shadow: 0px 1px 0px #0794b6;
 
       margin-right: 20px;
+
+      &:hover {
+        background: ${shade(0.08, '#00A7CF')};
+      }
+    }
+
+    > div {
+      > svg {
+        &:hover {
+          cursor: pointer;
+
+          path {
+            color: ${shade(0.3, '#A7B6C2')};
+          }
+        }
+      }
     }
   }
 `;
 
 export const TextArea = styled.textarea`
   flex: 1;
-  color: var(--gray);
+  color: var(--text);
   font-size: 15px;
   line-height: 16px;
   resize: none;
 `;
 
-export const IconsWrapper = styled.div`
+export const AttachIcons = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  > svg {
+    margin-right: 12px;
+
+    path {
+      color: var(--icons-alt);
+    }
+  }
+`;
+
+export const FormatIcons = styled.div`
   display: flex;
   align-items: center;
 
@@ -225,7 +265,11 @@ export const IconsWrapper = styled.div`
     margin-right: 12px;
 
     path {
-      color: #a7b6c2;
+      color: var(--icons-alt);
+    }
+
+    &:nth-child(n + 4) {
+      margin-right: 16px;
     }
   }
 

@@ -1,5 +1,15 @@
 import React, { FC } from 'react';
-import { FaCheckDouble, FaCheck, FaArrowLeft, FaRegCopy } from 'react-icons/fa';
+import {
+  FaCheckDouble,
+  FaCheck,
+  FaArrowLeft,
+  FaAlignLeft,
+  FaAlignRight,
+  FaAlignJustify,
+  FaAlignCenter,
+} from 'react-icons/fa';
+import { GrBold, GrItalic, GrUnderline } from 'react-icons/gr';
+import { FiPaperclip } from 'react-icons/fi';
 
 import { AiOutlinePicture } from 'react-icons/ai';
 import {
@@ -12,7 +22,8 @@ import {
   Message,
   TextAreaWrapper,
   TextArea,
-  IconsWrapper,
+  AttachIcons,
+  FormatIcons,
 } from './styles';
 import { IChat, ICustomer, IUser } from '../../pages/Dashboard';
 
@@ -94,10 +105,19 @@ const EmailChat: FC<IProps> = ({ handleCloseEmail, email, customer, user }) => {
 
           <div>
             <button type="button">Responder</button>
-            <IconsWrapper>
+            <AttachIcons>
               <AiOutlinePicture size={16} />
-              <FaRegCopy size={16} />
-            </IconsWrapper>
+              <FiPaperclip size={16} />
+            </AttachIcons>
+            <FormatIcons>
+              <GrBold size={20} />
+              <GrItalic size={20} />
+              <GrUnderline size={20} />
+              <FaAlignLeft size={16} />
+              <FaAlignCenter size={16} />
+              <FaAlignRight size={16} />
+              <FaAlignJustify size={16} />
+            </FormatIcons>
           </div>
         </TextAreaWrapper>
       </Body>

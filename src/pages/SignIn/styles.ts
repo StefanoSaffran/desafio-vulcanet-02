@@ -7,7 +7,7 @@ export const Container = styled.div`
   height: 100vh;
 
   display: flex;
-  align-items: stretch; /* stretch to fill the container */
+  align-items: stretch;
 `;
 
 export const Content = styled.div`
@@ -43,19 +43,25 @@ export const AnimationContainer = styled.div`
     text-align: center;
 
     a {
-      color: #fff;
+      color: #999;
       display: block;
-      margin-top: 24px;
+      margin-top: 21px;
+      font-size: 15px;
+      line-height: 18px;
       transition: color 0.2s;
 
       &:hover {
-        color: ${shade(0.2, '#fff')};
+        color: ${shade(0.3, '#999')};
       }
     }
 
     > button {
       background: var(--primary);
       color: var(--white);
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 18px;
+
       border: 0;
       border-radius: 4px;
       padding: 0 20px;
@@ -65,24 +71,12 @@ export const AnimationContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
-  }
 
-  > a {
-    color: #fff;
-    display: block;
-    margin-top: 24px;
-    transition: color 0.2s;
+      transition: color 0.2s;
 
-    display: flex;
-    align-items: center;
-
-    &:hover {
-      color: ${shade(0.2, '#fff')};
-    }
-
-    svg {
-      margin-right: 16px;
+      &:hover {
+        background: ${shade(0.08, '#00A7CF')};
+      }
     }
   }
 `;
@@ -93,7 +87,7 @@ export const Icons = styled.div`
 
   width: 260px;
   margin: 0 auto 20px;
-  color: #ddd;
+  color: var(--icons-border);
 `;
 
 export const Background = styled.div`

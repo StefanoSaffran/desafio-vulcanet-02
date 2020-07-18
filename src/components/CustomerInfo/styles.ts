@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Container = styled.div`
   background-color: var(--white);
@@ -19,7 +20,7 @@ export const Avatar = styled.img`
   height: 64px;
   border-radius: 50%;
 
-  background-color: var(--quinary);
+  background-color: var(--tertiary);
 `;
 
 export const CustomerData = styled.div`
@@ -30,12 +31,12 @@ export const CustomerData = styled.div`
   > strong {
     font-size: 13px;
     display: block;
-    color: #222;
+    color: var(--text);
   }
 
   > span {
     font-size: 13px;
-    color: #79accd;
+    color: var(--quaternary);
     text-transform: uppercase;
     font-weight: 500;
   }
@@ -48,20 +49,32 @@ export const ActionButtonsWrapper = styled.div`
   > button {
     flex: 1;
     background: transparent;
-    border: 1px solid #e5e5e5;
-    box-shadow: 0px 1px 0px #e5e5e5;
+    border: 1px solid var(--icons-border);
+    box-shadow: 0px 1px 0px var(--icons-border);
     height: 37px;
     border-radius: 4px;
+
+    &:hover {
+      > svg path {
+        color: ${shade(0.15, '#00A7CF')};
+      }
+    }
   }
 
   > button + button {
     margin-left: 10px;
+
+    &:hover {
+      > svg path {
+        color: ${shade(0.15, '#E33E1A')};
+      }
+    }
   }
 `;
 
 export const LatestChats = styled.div`
   > h5 {
-    color: #79accd;
+    color: var(--quaternary);
     text-transform: uppercase;
     font-size: 12px;
     line-height: 22px;
@@ -77,12 +90,12 @@ export const ChatInfo = styled.div`
     width: 18px;
     height: 18px;
     path {
-      color: #a7b6c2;
+      color: var(--icons-alt);
     }
   }
 
   > span {
-    color: #222;
+    color: var(--text);
     margin-left: 8px;
     font-size: 15px;
     line-height: 18px;
@@ -93,14 +106,14 @@ export const Notes = styled.div`
   margin-top: 26px;
 
   > h5 {
-    color: #79accd;
+    color: var(--quaternary);
     text-transform: uppercase;
     line-height: 22px;
     font-size: 12px;
   }
 
   > span {
-    color: #222;
+    color: var(--text);
     margin-top: 12px;
     line-height: 1.6;
     font-size: 12px;
@@ -116,7 +129,7 @@ export const Contact = styled.div`
   align-items: center;
 
   svg path {
-    color: #a7b6c2;
+    color: var(--icons-alt);
   }
 
   & + div {
@@ -139,6 +152,6 @@ export const ContactData = styled.div`
   > span {
     font-size: 14px;
     line-height: 1.3;
-    color: #222;
+    color: var(--text);
   }
 `;

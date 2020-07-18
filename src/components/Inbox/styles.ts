@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { shade } from 'polished';
 
 interface IButtonProps {
   notifications: number;
@@ -20,7 +21,7 @@ export const Header = styled.header`
   box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.02);
 
   > h3 {
-    color: #222;
+    color: var(--text);
     text-transform: uppercase;
     font-size: 16px;
     line-height: 18px;
@@ -46,8 +47,12 @@ export const Header = styled.header`
       text-align: center;
 
       color: var(--white);
-      background: #00a7cf;
+      background: var(--primary);
       box-shadow: 0px 1px 0px #0794b6;
+
+      &:hover {
+        background: ${shade(0.08, '#00A7CF')};
+      }
     }
   }
 `;
@@ -59,35 +64,33 @@ export const EmailList = styled.ul`
   margin: 10px 20px;
 
   > li {
-      display: flex;
-      font-weight: bold;
-      line-height: 16px;
-      width: 100%;
-      background: none;
-      text-align: left;
-      font-size: 12px;
-      text-transform: uppercase;
-      color: #79accd;
+    display: flex;
+    font-weight: bold;
+    line-height: 16px;
+    width: 100%;
+    background: none;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--quaternary);
 
-
-      span {
-        &:first-child {
-          width: 33%;
-          padding-left: 20px;
-        }
-
-        &:nth-child(2) {
-          width: 20%;
-        }
-
-        &:nth-child(3) {
-          flex: 1;
-        }
-      }
-
+    span {
       &:first-child {
-      margin-bottom: 10px;
+        width: 33%;
+        padding-left: 20px;
       }
+
+      &:nth-child(2) {
+        width: 20%;
+      }
+
+      &:nth-child(3) {
+        flex: 1;
+      }
+    }
+
+    &:first-child {
+      margin-bottom: 10px;
     }
   }
 
@@ -95,11 +98,10 @@ export const EmailList = styled.ul`
     button {
       height: 64px;
       margin-bottom: 5px;
-      border: 1px solid #e5e5e5;
+      border: 1px solid var(--icons-border);
       border-radius: 5px;
       align-items: center;
     }
-
   }
 `;
 
@@ -107,7 +109,7 @@ export const Email = styled.button<IButtonProps>`
   display: flex;
   font-size: 15px;
   line-height: 16px;
-  color: #222;
+  color: var(--text);
   width: 100%;
   background: none;
   text-align: left;
@@ -116,9 +118,10 @@ export const Email = styled.button<IButtonProps>`
     width: 8%;
     text-align: center;
     position: relative;
+
     > span {
       > svg {
-        color: #a7b6c2;
+        color: var(--icons-alt);
       }
     }
   }
@@ -126,7 +129,7 @@ export const Email = styled.button<IButtonProps>`
   ${props =>
     props.notifications &&
     css`
-      background: #fff;
+      background: var(--white);
       font-weight: bold;
 
       div {
@@ -145,7 +148,7 @@ export const Email = styled.button<IButtonProps>`
 
           width: auto;
           height: 16px;
-          min-width: 11px;
+          min-width: 10px;
           padding: 0 3px 1px;
 
           position: absolute;

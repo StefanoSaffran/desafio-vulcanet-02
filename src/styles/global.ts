@@ -3,23 +3,28 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
 :root {
   --primary: #00A7CF;
-  --secondary: #41A8A8;
-  --tertiary: #DBF3F8;
-  --quaternary: #D1FADF;
-  --quinary: #AACFC9;
+  --secondary: #7ed5e9;
+  --tertiary: #45a297;
+  --quaternary: #79ACCD;
 
   --background: #168B7D;
   --contentBackground: #F5F8FA;
+  --sidemenuBackground: #f8fafc;
+  --messagesBackground: #D1FADF;
 
   --white: #fff;
-  --gray: #8a8c90;
-  --darkGray: #434646;
+  --gray: #636466;
+  --darkGray: #333;
+  --text: #222;
+  --placeholder: #C7D7E2;
 
   --notification: #f84a4b;
   --selected: #148073;
 
   --whatsapp: #25D366;
   --email: #E33E1A;
+  --icons-border: #E5E5E5;
+  --icons-alt: #a7b6c2;
   }
 
   * {
@@ -49,13 +54,13 @@ export default createGlobalStyle`
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
     -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
     -webkit-transition-delay: 9999s;
   }
 
   input::placeholder, textarea::placeholder {
-    color: #999;
+    color: var(--placeholder);
   }
 
   a {

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { shade } from 'polished';
 
 interface IAuthorProps {
   from_guest: boolean;
@@ -36,7 +37,11 @@ export const Header = styled.header`
     text-align: center;
 
     color: var(--white);
-    background: #00a7cf;
+    background: var(--primary);
+
+    &:hover {
+      background: ${shade(0.08, '#00A7CF')};
+    }
   }
 `;
 
@@ -51,20 +56,21 @@ export const ChatBody = styled.section`
 `;
 
 export const InfoMessage = styled.div`
-  width: 324px;
+  width: min(324px, 20vw);
   height: 44px;
   padding: 0 24px;
   line-height: 16px;
 
   z-index: 3;
 
-  background-color: var(--tertiary);
-  color: #636466;
+  background-color: #dbf3f8;
+  color: var(--gray);
   border-radius: 30px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
   position: absolute;
   top: 20px;
-  left: calc(50% - 162px);
+  left: calc(50% - min(162px, 10vw));
 
   display: flex;
   align-items: center;
@@ -100,16 +106,16 @@ export const Author = styled.div<IAuthorProps>`
   font-size: 13px;
 
   > p {
-    color: #636466;
+    color: var(--gray);
     margin: 0 15px;
 
     > strong {
-      color: #636466;
+      color: var(--gray);
     }
   }
 
   svg {
-    color: ${({ seen }) => (seen ? '#4fc3f7' : '#A7B6C2')};
+    color: ${({ seen }) => (seen ? '#4fc3f7' : 'var(--icons-alt)')};
   }
 
   ${props =>
@@ -129,7 +135,7 @@ export const Avatar = styled.img`
   height: 24px;
   border-radius: 50%;
 
-  background-color: var(--quinary);
+  background-color: var(--tertiary);
 `;
 
 export const Message = styled.div<IMessageProps>`
@@ -138,7 +144,7 @@ export const Message = styled.div<IMessageProps>`
   margin-top: 24px;
   padding: 20px 14px;
 
-  color: #333;
+  color:  var(--darkGray);
 
   border-radius: 8px;
   position: relative;
@@ -154,7 +160,7 @@ export const Message = styled.div<IMessageProps>`
 
   align-self: ${props => (props.from_guest ? 'flex-start' : 'flex-end')};
   background-color: ${props =>
-    props.from_guest ? 'var(--white)' : 'var(--quaternary)'};
+    props.from_guest ? 'var(--white)' : 'var(--messagesBackground)'};
 
   &::before {
     content: '';
@@ -177,7 +183,7 @@ export const Message = styled.div<IMessageProps>`
           `
         : css`
             right: 0;
-            border-right: 15px solid var(--quaternary);
+            border-right: 15px solid var(--messagesBackground);
           `}
   }
 `;
@@ -187,11 +193,12 @@ export const InputWrapper = styled.div`
   background-color: var(--white);
 
   height: 48px;
+  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.05);
 `;
 
 export const MessagesInput = styled.input`
   flex: 1;
-  color: var(--gray);
+  color: var(--text);
   padding: 0 30px;
 `;
 
@@ -205,7 +212,7 @@ export const IconsWrapper = styled.div`
     margin-right: 12px;
 
     path {
-      color: #a7b6c2;
+      color: var(--icons-alt);
     }
   }
 
