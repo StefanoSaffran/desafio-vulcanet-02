@@ -61,6 +61,7 @@ export const InfoMessage = styled.div`
   height: 44px;
   padding: 0 24px;
   line-height: 16px;
+  font-size: 12px;
 
   z-index: 3;
 
@@ -79,6 +80,10 @@ export const InfoMessage = styled.div`
 
   strong {
     color: var(--darkGray);
+  }
+
+  @media (min-width: 1250px) {
+    font-size: 16px;
   }
 `;
 
