@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const Header = styled.header`
   height: 64px;
   background-color: var(--white);
-  padding: 8px 20px;
+  padding: 0 20px;
 
   display: flex;
   align-items: center;

@@ -18,7 +18,7 @@ export const Container = styled.div`
 export const Header = styled.header`
   height: 64px;
   background-color: var(--white);
-  padding: 8px 16px;
+  padding: 0 20px;
 
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@ export const Header = styled.header`
   > button {
     height: 38px;
     border-radius: 4px;
-    padding: 0 30px;
+    padding: 0 25px;
 
     font-weight: bold;
     font-size: 15px;
@@ -38,6 +38,7 @@ export const Header = styled.header`
 
     color: var(--white);
     background: var(--primary);
+    box-shadow: 0px 1px 0px #0794b6;
 
     &:hover {
       background: ${shade(0.08, '#00A7CF')};
@@ -213,6 +214,14 @@ export const IconsWrapper = styled.div`
 
     path {
       color: var(--icons-alt);
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      path {
+        color: ${shade(0.3, '#A7B6C2')};
+      }
     }
   }
 

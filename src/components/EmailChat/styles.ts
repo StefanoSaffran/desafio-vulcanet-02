@@ -18,7 +18,7 @@ export const Container = styled.div`
 export const Header = styled.header`
   height: 64px;
   background-color: var(--white);
-  padding: 8px 20px;
+  padding: 0 20px;
 
   display: flex;
   align-items: center;
@@ -69,6 +69,10 @@ export const Header = styled.header`
     color: var(--white);
     background: var(--primary);
     box-shadow: 0px 1px 0px #0794b6;
+
+    &:hover {
+      background: ${shade(0.08, '#00A7CF')};
+    }
   }
 `;
 
